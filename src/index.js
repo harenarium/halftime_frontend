@@ -1,52 +1,36 @@
 $(document).ready(() => {
   // alert('hello')
-  fetch('http://localhost:3000/api/v1/users').then(resp =>resp.json).then(console.log)
+  // fetch('http://localhost:3000/api/v1/users').then(resp =>resp.json).then(console.log)
 
-  let getAllUsers = () => {
-    return fetch("http://localhost:3000/api/v1/users")
-      .then(res => res.json())
-    }
+    document.querySelector('#submit-addresses').addEventListener('click', (e) => {
+      e.preventDefault()
+      // clearLocations()
+      let address1 = document.querySelector('#input-address-1').value
+      let address2 = document.querySelector('#input-address-2').value
+      let userName1 = document.querySelector('#user-name-1').value
+      let userName2 = document.querySelector('#user-name-2').value
 
+      clearMarkers()
+      // geocode address 1
+      geoCodeAddress(address1, userName1)
+      .then((response) => {
+        console.log('address 1 response: ', response)
+        // set markers with optimistic rendering, then persist to db (persisting is a fetch POST?)
+        setMarker(response, userName1)
+        // TODO fetch request: POST to users -- userName1 & response.slice(0,1).place_id (place_id is a unique id for location)
+      })
+      .catch((status) => { console.error('address 1 error: ', status) })
 
-
-  // getAllUsers()
-  // .then(json => {
-  //   console.log(json.filter((trainer) => {
-  //     return trainer.pokemons.length >= 1
-  //   }))
-  // })
-  //
-  //
-  //   // Here we do everything that handles our logic for our loading our trainers
-  //   // and giving them an event listener for what should happen when they get clicked
-  // getAllUsers()
-  // .then(json => {
-  //   let trainersContainer = document.getElementById('trainers-container')
-  //   json.forEach(trainer => {
-  //     let trainerDiv = document.createElement('div')
-  //     trainerDiv.innerText = trainer.name
-  //
-  //     trainerDiv.addEventListener('click', function(event){
-  //       let pokemonContainer = document.getElementById('pokemon-container')
-  //       pokemonContainer.innerHTML = ""
-  //
-  //       trainer.pokemons.forEach(pokemon => {
-  //         let pokemonLi = document.createElement('li')
-  //
-  //         pokemonLi.innerText = `${pokemon.name} (${pokemon.species})`
-  //
-  //         pokemonContainer.append(pokemonLi)
-  //
-  //         // Same as the line above, but concats the innerHTML of both
-  //         // pokemonContainer.innerHTML += pokemonLi.innerHTML
-  //       })
-  //     })
-  //
-  //     trainersContainer.append(trainerDiv)
-  //   })
-  // })
-
-
+      // geocode address 2
+      geoCodeAddress(address2, userName2)
+      .then((response) => {
+        console.log('address 2 response: ', response)
+        // set markers with optimistic rendering, then persist to db (persisting is a fetch POST?)
+        setMarker(response, userName2)
+        // TODO fetch request: POST to users -- userName1 & response.slice(0,1).place_id (place_id is a unique id for location)
+      })
+      .catch((status) => { console.error('address 2 error: ', status) })
+    }) // end of submit event listener
 
 
   $(function() {
@@ -95,7 +79,5 @@ $(document).ready(() => {
           $(".user_register").hide();
       });
   });
-
-
 
 });

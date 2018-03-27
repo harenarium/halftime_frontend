@@ -4,60 +4,82 @@
     <meta charset="UTF-8">
     <title>HalfTime</title>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="src/init_map.js"></script>
     <script src="src/index.js"></script>
-
+    <script src="src/api_key.js" ></script>
+    <!-- <script src="src/init_map.js"></script> -->
+    <script src="src/geocode_address.js"></script>
+    <script src="src/markers.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
   </head>
   <body>
-    <h3>THIS IS THE LOGIN CONTAINER. COMMENT ME OUT</h3>
     <div class="loginContainer">
-    	<!-- Login or Register-->
-    	<div class="login_buttons">
-    		<div><a href="#" id="login_button">Login</a></div>
-    		<div><a href="#" id="register_button">Sign up</a></div>
-    	</div>
-    	<div class="logout_buttons">
-    		<div><a href="#" class="logout">Log out</a></div>
-    	</div>
-    	<!-- Login form -->
-    	<div class="user_login">
-    		<form id="login_form">
-    			<label>Username</label>
-    			<input type="text"> <br>
-    				<div><a href="#" class="logout">Back</a></div>
-    				<div><input type="submit" value="Login"></div>
-    		</form>
-    	</div>
-    	<!-- Register Form -->
-    	<div class="user_register">
-    		<form id="register_form">
-    			<label>Full Name</label>
-    			<input type="text"> <br>
-    			<label>Username</label>
-    			<input type="email"> <br>
+      <!-- Login or Register-->
+      <div class="login_buttons">
+        <div><a href="#" id="login_button">Login</a></div>
+        <div><a href="#" id="register_button">Sign up</a></div>
+      </div>
+      <div class="logout_buttons">
+        <div><a href="#" class="logout">Log out</a></div>
+      </div>
+      <!-- Login form -->
+      <div class="user_login">
+        <form id="login_form">
+          <label>Username</label>
+          <input type="text"> <br>
+            <div><a href="#" class="logout">Back</a></div>
+            <div><input type="submit" value="Login"></div>
+        </form>
+      </div>
+      <!-- Register Form -->
+      <div class="user_register">
+        <form id="register_form">
+          <label>Full Name</label>
+          <input type="text"> <br>
+          <label>Username</label>
+          <input type="email"> <br>
             <div><a href="#" class="logout">Back</a></div>
             <div><input type="submit" value="Register"></div>
-    		</form>
-    	</div>
+        </form>
+      </div>
     </div>
-    <h3>THIS IS THE ADDRESS FORM CONTAINER. COMMENT ME OUT</h3>
-    <form id="address-form">
-      <label>Address 1</label>
-      <input type="text"> <br>
-      <label>Time 1</label>
-      <input type="number"> <br>
-      <label>Address 2</label>
-      <input type="text"> <br>
-      <label>Time 2</label>
-      <input type="number"> <br>
-    </form>
-    <h3>THIS IS MORE STUFF. COMMENT ME OUT</h3>
-    <div><strong>Results</strong></div>
-    <div id="output"></div>
-    <h3>THIS IS THE MAP. COMMENT ME OUT</h3>
-    <div id="map"></div>
-    <script src="src/distancematrix.js"></script>
-    <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjYNktMf-o_LlMEsG5n97wIFXjvtps5Es&callback=initMap">
-    </script>
+
+    <div class="container is-fluid">
+      <div class="columns">
+            <div class="column is-half">
+                <form id="form-address-1">
+
+                    <input type="text" name="" class="input" id="user-name-1" placeholder="Name" size="50" style="height:50px;font-size:14pt;"></br>
+                    <input type="text" name="" class="input" id="input-address-1" placeholder="Enter a location" size="50" style="height:50px;font-size:14pt;">
+                    <!-- <input type="text" name="" id="input-keywords-1" placeholder="Enter keywords" width="48" height="24"> -->
+                </form>
+            </div>
+            <div class="column is-half">
+                <form id="form-address-2">
+                    <input type="text" name="" class="input" id="user-name-2" placeholder="Name" size="50" style="height:50px;font-size:14pt;"></br>
+                    <input type="text" name="" class="input" id="input-address-2" placeholder="Enter a location" size="50" style="height:50px;font-size:14pt;">
+                    <!-- <input type="text" name="" id="input-keywords-2" placeholder="Enter keywords" width="48" height="24"> -->
+                </form>
+            </div>
+            <div class="column">
+                <form id="form-submit-addresses">
+                    <input type="submit" name="" id="submit-addresses" value="Add Addresses">
+                </form>
+            </div>
+      </div>
+
+      <h3>THIS IS MORE STUFF. COMMENT ME OUT</h3>
+      <div><strong>Results</strong></div>
+      <div id="output"></div>
+
+      <div id="map" style="height:500px;"></div>
+    </div>
+
+
+  <!-- Load maps API asynchronously, then call initMap() -->
+  <!-- <script src=`https://maps.googleapis.com/maps/api/js?key=${API_KEY}&libraries=places&callback=initMap` async defer></script> -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD7yUUJjuy7n4GbG-sDK1qJh3zfTMthgpE&libraries=places&callback=initMap" async defer></script>
+  <script src="src/distancematrix.js"></script>
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD7yUUJjuy7n4GbG-sDK1qJh3zfTMthgpE&callback=initMap"></script>
   </body>
 </html>
