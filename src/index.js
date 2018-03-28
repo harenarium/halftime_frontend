@@ -1,8 +1,8 @@
 $(document).ready(() => {
-  
+
   let originIcon = 'https://chart.googleapis.com/chart?' + 'chst=d_map_pin_letter&chld=O|FFFF00|000000';
   let destinationIcon = 'https://chart.googleapis.com/chart?' + 'chst=d_map_pin_letter&chld=D|FF0000|000000';
-  
+
   document.querySelector('#submit-addresses').addEventListener('click', (e) => {
     e.preventDefault()
     let address1 = document.querySelector('#input-address-1').value
@@ -29,7 +29,7 @@ $(document).ready(() => {
         // TODO fetch request: POST to users -- userName1 & response.slice(0,1).place_id (place_id is a unique id for location)
 
         // both geocode promises resolved so origin1 & origin2 should be defined
-        destinationA = {lat: precisionRound(origin1.lat()*percent1,6) + precisionRound(origin2.lat()*percent2,6), lng: precisionRound(origin1.lng()*percent1,6) + precisionRound(origin2.lng()*percent2,6)}
+        destinationA = calculateOptimumDestination(origin1, origin2)
         distanceMatrixOptions = {
           origins: [origin1, origin2],
           destinations: [destinationA],
