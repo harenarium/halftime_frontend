@@ -7,9 +7,12 @@
     <script src="src/init_map.js"></script>
     <script src="src/index.js"></script>
     <script src="src/api_key.js" ></script>
-    <!-- <script src="src/init_map.js"></script> -->
     <script src="src/geocode_address.js"></script>
     <script src="src/markers.js"></script>
+    <script src="src/precision_round.js" "></script>
+    <!-- <script src="src/distancematrix.js"></script> -->
+    <script src="src/retrieve_distance_matrix.js"></script>
+    <script src="src/generate_optimum_destination.js" "></script>
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
   </head>
   <body>
@@ -79,8 +82,9 @@
 
   <!-- Load maps API asynchronously, then call initMap() -->
   <!-- <script src=`https://maps.googleapis.com/maps/api/js?key=${API_KEY}&libraries=places&callback=initMap` async defer></script> -->
-  <script src="src/distancematrix.js"></script>
+
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD7yUUJjuy7n4GbG-sDK1qJh3zfTMthgpE&libraries=places&callback=initMap" async defer></script>
-  <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD7yUUJjuy7n4GbG-sDK1qJh3zfTMthgpE&callback=initMap"></script> -->
+  <!-- <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD7yUUJjuy7n4GbG-sDK1qJh3zfTMthgpE&callback=initMap"></script> -->
+
   </body>
 </html>
