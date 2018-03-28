@@ -1,0 +1,14 @@
+.login_buttons {
+  }
+
+.logout_buttons {
+  display: none;
+  }
+
+.user_login {
+  display: none;
+  }
+
+.user_register {
+  display: none;
+  }
