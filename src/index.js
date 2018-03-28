@@ -33,51 +33,47 @@ $(document).ready(() => {
     }) // end of submit event listener
 
 
-  $(function() {
-    $(".login_buttons").show();
-    $(".logout_buttons").hide();
-    $(".user_login").hide();
-    $(".user_register").hide();
+    $(function() {
+      $(".login_trigger").click(function() {
+        $(".modal").addClass("is-active");
+        $(".user_login").show();
+        $(".user_register").hide();
+        $(".modal-card-title").text('Login');
+        $(".login-button").text('Login');
+        $("#register-form")[0].reset()
+      });
 
-  		// Calling Login Form
-  		$("#login_button").click(function() {
-  				$(".login_buttons").hide();
-          $(".logout_buttons").hide();
-  				$(".logout_buttons").hide();
-  				$(".user_login").show();
-  		});
+      $(".register_trigger").click(function() {
+        $(".modal").addClass("is-active");
+        $(".user_login").hide();
+        $(".user_register").show();
+        $(".modal-card-title").text('Register');
+        $(".login-button").text('Register');
+        $("#login-form")[0].reset()
+      });
 
-  		// Calling Register Form
-  		$("#register_button").click(function() {
-  				$(".login_buttons").hide();
-          $(".logout_buttons").hide();
-    			$(".logout_buttons").hide();
-  				$(".user_register").show();
-  		});
+      $("#login-close").click(function() {
+         $(".modal").removeClass("is-active");
+      });
 
-  		// Going back to Social Forms / logout
-  		$(".logout").click(function() {
-  				$(".user_login").hide();
-  				$(".user_register").hide();
-  				$(".login_buttons").show();
-          $(".logout_buttons").hide();
-  		});
+      $(".modal-background").click(function() {
+         $(".modal").removeClass("is-active");
+      });
 
       // Logging in!
-      $("#login_form").on("submit", function() {
-          $(".login_buttons").hide();
-          $(".logout_buttons").show();
-          $(".user_login").hide();
-          $(".user_register").hide();
+      $(".login-button").click(function(e) {
+        if (this.innerText === "Login"){
+          console.log(this.parentNode.parentNode.querySelector('#login-username').value)
+          //grab data and pass it
+        } else if (this.innerText === "Register"){
+          console.log(this.parentNode.parentNode.querySelector('#register-fullname').value)
+          console.log(this.parentNode.parentNode.querySelector('#register-username').value)
+          //grab data and pass it
+        }
+        $("#login-form")[0].reset()
+        $("#register-form")[0].reset()
+        $(".modal").removeClass("is-active");
       });
-
-      // Registering and also logging in!
-      $("#register_form").on("submit", function() {
-          $(".login_buttons").hide();
-          $(".logout_buttons").show();
-          $(".user_login").hide();
-          $(".user_register").hide();
-      });
-  });
+    });
 
 });

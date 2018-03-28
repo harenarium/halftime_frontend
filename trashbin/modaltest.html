@@ -17,67 +17,52 @@
     $(function() {
 
       //
-      $("#login_trigger").click(function() {
+      $(".login_trigger").click(function() {
         $(".modal").addClass("is-active");
         $(".user_login").show();
         $(".user_register").hide();
+        $(".modal-card-title").text('Login');
+        $(".login-button").text('Login');
+        $("#register-form")[0].reset()
       });
 
-      $("#login_trigger").click(function() {
+      $(".register_trigger").click(function() {
         $(".modal").addClass("is-active");
         $(".user_login").hide();
         $(".user_register").show();
+        $(".modal-card-title").text('Register');
+        $(".login-button").text('Register');
+        $("#login-form")[0].reset()
       });
 
       $("#login-close").click(function() {
          $(".modal").removeClass("is-active");
       });
 
-        // Calling Login Form
-        $("#login_button").click(function() {
-            $(".login_buttons").hide();
-            $(".logout_buttons").hide();
-            $(".logout_buttons").hide();
-            $(".user_login").show();
-        });
+      $(".modal-background").click(function() {
+         $(".modal").removeClass("is-active");
+      });
 
-        // Calling Register Form
-        $("#register_button").click(function() {
-            $(".login_buttons").hide();
-            $(".logout_buttons").hide();
-            $(".logout_buttons").hide();
-            $(".user_register").show();
-        });
-
-        // Going back to Social Forms / logout
-        $(".logout").click(function() {
-            $(".user_login").hide();
-            $(".user_register").hide();
-            $(".login_buttons").show();
-            $(".logout_buttons").hide();
-        });
-
-        // Logging in!
-        $("#login_form").on("submit", function() {
-            $(".login_buttons").hide();
-            $(".logout_buttons").show();
-            $(".user_login").hide();
-            $(".user_register").hide();
-        });
-
-        // Registering and also logging in!
-        $("#register_form").on("submit", function() {
-            $(".login_buttons").hide();
-            $(".logout_buttons").show();
-            $(".user_login").hide();
-            $(".user_register").hide();
-        });
+      // Logging in!
+      $(".login-button").click(function(e) {
+        if (this.innerText === "Login"){
+          console.log(this.parentNode.parentNode.querySelector('#login-username').value)
+          //grab data and pass it
+        } else if (this.innerText === "Register"){
+          console.log(this.parentNode.parentNode.querySelector('#register-fullname').value)
+          console.log(this.parentNode.parentNode.querySelector('#register-username').value)
+          //grab data and pass it
+        }
+        $("#login-form")[0].reset()
+        $("#register-form")[0].reset()
+        $(".modal").removeClass("is-active");
+      });
     });
     </script>
-    <div class="container">
-    		<h1>Popup Login & Signup with jQuery</h1>
-    		<a id="login_trigger" href="#modal" class="btn">Click here to Login</a>
-    		<a id="register_trigger" href="#modal" class="btn">or register</a>
+
+
+    		<a class="login_trigger" href="#modal">Click here to Login</a>
+    		<a class="register_trigger" href="#modal">or register</a>
 
     		<div class="modal">
           <div class="modal-background"></div>
@@ -87,71 +72,30 @@
               <button class="delete" id="login-close" aria-label="close"></button>
     				</header>
             <section class="modal-card-body">
-              <!-- Content ... -->
               <div class="user_login">
-                  <form>
+                  <form id="login-form">
                       <label>Username</label>
-                      <input type="text" />
-                      <br />
-
-                      <div class="action_btns">
-                          <div class="one_half"><a href="#" class="btn back_btn"><i class="fa fa-angle-double-left"></i> Back</a></div>
-                          <div class="one_half last"><a href="#" class="btn btn_red">Login</a></div>
-                      </div>
+                      <input id="login-username" type="text"/> <br/><br/>
                   </form>
-
-                  <a href="#" class="forgot_password">Forgot password?</a>
+                  <button class="login-button button is-success">Login</button> <br/>
+                  <a href="#" class="register_trigger">Don't have an account? Sign up!</a>
               </div>
               <div class="user_register">
-                  <form>
+                  <form id="register-form">
                       <label>Full Name</label>
-                      <input type="text" />
-                      <br />
-
-                      <label>Email Address</label>
-                      <input type="email" />
-                      <br />
-
-                      <label>Password</label>
-                      <input type="password" />
-                      <br />
-
-                      <div class="checkbox">
-                          <input id="send_updates" type="checkbox" />
-                          <label for="send_updates">Send me occasional email updates</label>
-                      </div>
-
-                      <div class="action_btns">
-                          <div class="one_half"><a href="#" class="btn back_btn"><i class="fa fa-angle-double-left"></i> Back</a></div>
-                          <div class="one_half last"><a href="#" class="btn btn_red">Register</a></div>
-                      </div>
+                      <input id="register-fullname"type="text"/> <br/>
+                      <label>Username</label>
+                      <input id="register-username"type="text"/> <br/><br/>
                   </form>
+                  <button class="login-button button is-success">Register</button> <br/>
+                  <a href="#" class="login_trigger">Already have an account? Log in.</a>
               </div>
             </section>
-            <footer class="modal-card-foot">
-              <button class="button is-success">Login</button>
-              <button class="button">Cancel</button>
-            </footer>
+            <!-- <footer class="modal-card-foot">
+              <button class="login-button button is-success">Login</button>
+            </footer> -->
           </div>
     		</div>
-    </div>
 
   </body>
 </html>
-
-
-
-<!-- Social Login -->
-<div class="social_login">
-
-
-    <div class="action_btns">
-        <div class="one_half"><a href="#" id="login_form" class="btn">Login</a></div>
-        <div class="one_half last"><a href="#" id="register_form" class="btn">Sign up</a></div>
-    </div>
-</div>
-
-<!-- Username & Password Login form -->
-
-
-<!-- Register Form -->

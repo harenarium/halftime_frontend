@@ -14,51 +14,35 @@
   </head>
   <body>
 
+    <a class="login_trigger" href="#modal">Click here to Login</a>
+    <a class="register_trigger" href="#modal">or register</a>
     <div class="modal">
       <div class="modal-background"></div>
       <div class="modal-card">
         <header class="modal-card-head">
-          <p class="modal-card-title">Modal title</p>
-          <button class="delete" aria-label="close"></button>
+          <p class="modal-card-title">Login</p>
+          <button class="delete" id="login-close" aria-label="close"></button>
         </header>
         <section class="modal-card-body">
-          <!-- Content ... -->
+          <div class="user_login">
+              <form id="login-form">
+                  <label>Username</label>
+                  <input id="login-username" type="text"/> <br/><br/>
+              </form>
+              <button class="login-button button is-success">Login</button> <br/>
+              <a href="#" class="register_trigger">Don't have an account? Sign up!</a>
+          </div>
+          <div class="user_register">
+              <form id="register-form">
+                  <label>Full Name</label>
+                  <input id="register-fullname"type="text"/> <br/>
+                  <label>Username</label>
+                  <input id="register-username"type="text"/> <br/><br/>
+              </form>
+              <button class="login-button button is-success">Register</button> <br/>
+              <a href="#" class="login_trigger">Already have an account? Log in.</a>
+          </div>
         </section>
-        <footer class="modal-card-foot">
-          <button class="button is-success">Save changes</button>
-          <button class="button">Cancel</button>
-        </footer>
-      </div>
-    </div>
-
-    <div class="loginContainer">
-      <!-- Login or Register-->
-      <div class="login_buttons">
-        <div><a href="#" id="login_button">Login</a></div>
-        <div><a href="#" id="register_button">Sign up</a></div>
-      </div>
-      <div class="logout_buttons">
-        <div><a href="#" class="logout">Log out</a></div>
-      </div>
-      <!-- Login form -->
-      <div class="user_login">
-        <form id="login_form">
-          <label>Username</label>
-          <input type="text"> <br>
-            <div><a href="#" class="logout">Back</a></div>
-            <div><input type="submit" value="Login"></div>
-        </form>
-      </div>
-      <!-- Register Form -->
-      <div class="user_register">
-        <form id="register_form">
-          <label>Full Name</label>
-          <input type="text"> <br>
-          <label>Username</label>
-          <input type="email"> <br>
-            <div><a href="#" class="logout">Back</a></div>
-            <div><input type="submit" value="Register"></div>
-        </form>
       </div>
     </div>
 
