@@ -38,7 +38,7 @@ $(document).ready(() => {
             avoidHighways: false,
             avoidTolls: false
           }
-          
+
           // anti-pattern (nested promise): how to fix: http://www.datchley.name/promise-patterns-anti-patterns/
           retrieveDistanceMatrix(distanceMatrixOptions)
           .then((response) => {
@@ -84,15 +84,37 @@ $(document).ready(() => {
         if (this.innerText === "Login"){
           console.log(this.parentNode.parentNode.querySelector('#login-username').value)
           //grab data and pass it
+          // fetch('http://localhost:3000/api/v1/users').then(resp => resp.json()).then(json =>{
+          //   json.//for Each for obj check if username === above value. if find then log in else fail
+          // })
+
         } else if (this.innerText === "Register"){
           console.log(this.parentNode.parentNode.querySelector('#register-fullname').value)
           console.log(this.parentNode.parentNode.querySelector('#register-username').value)
           //grab data and pass it
+          // validate username is unique? and full name is present
+
+          // fetch('http://localhost:3000/api/v1/users',{
+          //   method: POST,
+          //   headers: , //what here
+          //   body: JSON.stringify({}) //what here
+          // }).then(resp => resp.json()).then(json =>{
+          //   json.//log in as new user
+          // })
+
         }
         $("#login-form")[0].reset()
         $("#register-form")[0].reset()
         $(".modal").removeClass("is-active");
       });
+
+      //logging out
+      if logged in
+      log out
+      $(."login_trigger").text("Click here to Login")
+      $(."register_trigger").text("or register")
+
+
     });
 
 });
