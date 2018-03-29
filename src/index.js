@@ -29,23 +29,23 @@ $(document).ready(() => {
         // TODO fetch request: POST to users -- userName1 & response.slice(0,1).place_id (place_id is a unique id for location)
 
         // both geocode promises resolved so origin1 & origin2 should be defined
-        destinationA = calculateOptimumDestination(origin1, origin2)
-        distanceMatrixOptions = {
-          origins: [origin1, origin2],
-          destinations: [destinationA],
-          travelMode: 'TRANSIT',
-          unitSystem: google.maps.UnitSystem.IMPERIAL,
-          avoidHighways: false,
-          avoidTolls: false
-        }
-
-        // anti-pattern (nested promise): how to fix: http://www.datchley.name/promise-patterns-anti-patterns/
-        retrieveDistanceMatrix(distanceMatrixOptions)
+        calculateOptimumDestination(origin1, origin2).then(destinationA => {
+          distanceMatrixOptions = {
+            origins: [origin1, origin2],
+            destinations: [destinationA],
+            travelMode: 'TRANSIT',
+            unitSystem: google.maps.UnitSystem.IMPERIAL,
+            avoidHighways: false,
+            avoidTolls: false
+          }
+          
+          // anti-pattern (nested promise): how to fix: http://www.datchley.name/promise-patterns-anti-patterns/
+          retrieveDistanceMatrix(distanceMatrixOptions)
           .then((response) => {
             generateOptimumDestination(response) // working point
           })
           .catch((status) => { console.error('getDistanceMatrix error: ', status) })
-
+        })
       })
       .catch((status) => { console.error('Promise.all error: ', status) })
 
