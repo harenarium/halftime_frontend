@@ -23,12 +23,11 @@
 
     <nav class="navbar" role="navigation" aria-label="main navigation">
       <div class="navbar-brand">
-        <a class="navbar-item" href="https://bulma.io">
-          <img src="https://bulma.io/images/bulma-logo.png" alt="Bulma: a modern CSS framework based on Flexbox" width="112" height="28">
+        <a class="navbar-item" href="#">
+          <img src="src/No-logo.svg" alt="no logo yet" width="112" height="28">
         </a>
-        <a class="navbar-item">
-          Home
-        </a>
+        <a id="log-top-trg" class="login_trigger navbar-item" href="#modal">Click here to Login</a>
+        <a id="reg-top-trg" class="register_trigger navbar-item" href="#modal">or register</a>
         <div class="navbar-burger">
           <span></span>
           <span></span>
@@ -37,8 +36,6 @@
       </div>
     </nav>
 
-    <a id="log-top-trg" class="login_trigger" href="#modal">Click here to Login</a>
-    <a id="reg-top-trg" class="register_trigger" href="#modal">or register</a>
     <div class="modal">
       <div class="modal-background"></div>
       <div class="modal-card">
@@ -98,7 +95,7 @@
             </div>
             <div class="column is-2">
                 <form id="form-submit-addresses">
-                    <input type="submit" name="" id="submit-addresses" value="Add Addresses">
+                    <input type="submit" name="" class="button is-success" id="submit-addresses" value="Add Addresses">
                 </form>
             </div>
       </div>

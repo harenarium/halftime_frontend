@@ -23,7 +23,7 @@ let getAHalfpoint = function(origin1, origin2) {
       destination: origin2,
       travelMode: 'TRANSIT'
     }, function(response, status) {
-        directionsDisplay.setDirections(response);
+        // directionsDisplay.setDirections(response);
         // console.log(status)
         // console.log(response.routes[0].legs[0].duration)
         // console.log(response.routes[0].legs[0].steps)
