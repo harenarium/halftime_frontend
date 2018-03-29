@@ -6,6 +6,7 @@
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="src/init_map.js"></script>
     <script src="src/index.js"></script>
+    <script src="src/login.js"></script>
     <script src="src/api_key.js" ></script>
     <script src="src/geocode_address.js"></script>
     <script src="src/markers.js"></script>
@@ -19,8 +20,21 @@
   </head>
   <body>
 
-    <a class="login_trigger" href="#modal">Click here to Login</a>
-    <a class="register_trigger" href="#modal">or register</a>
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="#">
+          <img src="src/No-logo.svg" alt="no logo yet" width="112" height="28">
+        </a>
+        <a id="log-top-trg" class="login_trigger navbar-item" href="#modal">Click here to Login</a>
+        <a id="reg-top-trg" class="register_trigger navbar-item" href="#modal">or register</a>
+        <div class="navbar-burger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </nav>
+
     <div class="modal">
       <div class="modal-background"></div>
       <div class="modal-card">
@@ -31,21 +45,31 @@
         <section class="modal-card-body">
           <div class="user_login">
               <form id="login-form">
+                <div class="control">
                   <label>Username</label>
-                  <input id="login-username" type="text"/> <br/><br/>
+                  <input id="login-username" type="text"/>
+                </div>
+                  <p class="help is-danger" style="display: none" id="warn-username-invalid">This username is invalid</p> <br/>
               </form>
               <button class="login-button button is-success">Login</button> <br/>
-              <a href="#" class="register_trigger">Don't have an account? Sign up!</a>
+              <a href="#" id="reg-mod-trg" class="register_trigger">Don't have an account? Sign up!</a>
           </div>
           <div class="user_register">
               <form id="register-form">
+                <div class="control">
                   <label>Full Name</label>
-                  <input id="register-fullname"type="text"/> <br/>
+                  <input id="register-fullname"type="text"/>
+                </div>
+                  <p class="help is-danger" style="display: none" id="warn-name-required">Name is required</p>
+                <div class="control">
                   <label>Username</label>
-                  <input id="register-username"type="text"/> <br/><br/>
+                  <input id="register-username"type="text"/>
+                </div>
+                  <p class="help is-danger" style="display: none" id="warn-username-required">Username is required</p>
+                  <p class="help is-danger" style="display: none" id="warn-username-taken">This username has been taken</p> <br/>
               </form>
               <button class="login-button button is-success">Register</button> <br/>
-              <a href="#" class="login_trigger">Already have an account? Log in.</a>
+              <a href="#" id="log-mod-trg" class="login_trigger">Already have an account? Log in.</a>
           </div>
         </section>
       </div>
@@ -70,7 +94,7 @@
             </div>
             <div class="column is-2">
                 <form id="form-submit-addresses">
-                    <input type="submit" name="" id="submit-addresses" value="Add Addresses">
+                    <input type="submit" name="" class="button is-success" id="submit-addresses" value="Add Addresses">
                 </form>
             </div>
       </div>

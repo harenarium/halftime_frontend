@@ -36,7 +36,7 @@ $(document).ready(() => {
             avoidHighways: false,
             avoidTolls: false
           }
-          
+
           // anti-pattern (nested promise): how to fix: http://www.datchley.name/promise-patterns-anti-patterns/
           retrieveDistanceMatrix(distanceMatrixOptions)
           .then((response) => {
@@ -49,48 +49,6 @@ $(document).ready(() => {
 
   }) // end of submit event listener
 
-
-    $(function() {
-      $(".login_trigger").click(function() {
-        $(".modal").addClass("is-active");
-        $(".user_login").show();
-        $(".user_register").hide();
-        $(".modal-card-title").text('Login');
-        $(".login-button").text('Login');
-        $("#register-form")[0].reset()
-      });
-
-      $(".register_trigger").click(function() {
-        $(".modal").addClass("is-active");
-        $(".user_login").hide();
-        $(".user_register").show();
-        $(".modal-card-title").text('Register');
-        $(".login-button").text('Register');
-        $("#login-form")[0].reset()
-      });
-
-      $("#login-close").click(function() {
-         $(".modal").removeClass("is-active");
-      });
-
-      $(".modal-background").click(function() {
-         $(".modal").removeClass("is-active");
-      });
-
-      // Logging in!
-      $(".login-button").click(function(e) {
-        if (this.innerText === "Login"){
-          console.log(this.parentNode.parentNode.querySelector('#login-username').value)
-          //grab data and pass it
-        } else if (this.innerText === "Register"){
-          console.log(this.parentNode.parentNode.querySelector('#register-fullname').value)
-          console.log(this.parentNode.parentNode.querySelector('#register-username').value)
-          //grab data and pass it
-        }
-        $("#login-form")[0].reset()
-        $("#register-form")[0].reset()
-        $(".modal").removeClass("is-active");
-      });
-    });
+  $(loginAction);
 
 });
