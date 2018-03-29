@@ -1,5 +1,5 @@
 $(document).ready(() => {
-  
+
   document.querySelector('#submit-addresses').addEventListener('click', (e) => {
     e.preventDefault()
     let address1 = document.querySelector('#input-address-1').value
@@ -27,23 +27,23 @@ $(document).ready(() => {
         // TODO fetch request: POST to users -- userName1 & response.slice(0,1).place_id (place_id is a unique id for location)
 
         // both geocode promises resolved so origin1 & origin2 should be defined
-        destinationA = {lat: precisionRound(origin1.lat()*percent1,6) + precisionRound(origin2.lat()*percent2,6), lng: precisionRound(origin1.lng()*percent1,6) + precisionRound(origin2.lng()*percent2,6)}
-        distanceMatrixOptions = {
-          origins: [origin1, origin2],
-          destinations: [destinationA],
-          travelMode: 'TRANSIT',
-          unitSystem: google.maps.UnitSystem.IMPERIAL,
-          avoidHighways: false,
-          avoidTolls: false
-        }
-
-        // anti-pattern (nested promise): how to fix: http://www.datchley.name/promise-patterns-anti-patterns/
-        retrieveDistanceMatrix(distanceMatrixOptions)
+        calculateOptimumDestination(origin1, origin2).then(destinationA => {
+          distanceMatrixOptions = {
+            origins: [origin1, origin2],
+            destinations: [destinationA],
+            travelMode: 'TRANSIT',
+            unitSystem: google.maps.UnitSystem.IMPERIAL,
+            avoidHighways: false,
+            avoidTolls: false
+          }
+          
+          // anti-pattern (nested promise): how to fix: http://www.datchley.name/promise-patterns-anti-patterns/
+          retrieveDistanceMatrix(distanceMatrixOptions)
           .then((response) => {
             generateBestDestination(response)
           })
           .catch((status) => { console.error('getDistanceMatrix error: ', status) })
-
+        })
       })
       .catch((status) => { console.error('Promise.all error: ', status) })
 
