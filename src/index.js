@@ -1,8 +1,5 @@
 $(document).ready(() => {
   
-  let originIcon = 'https://chart.googleapis.com/chart?' + 'chst=d_map_pin_letter&chld=O|FFFF00|000000';
-  let destinationIcon = 'https://chart.googleapis.com/chart?' + 'chst=d_map_pin_letter&chld=D|FF0000|000000';
-  
   document.querySelector('#submit-addresses').addEventListener('click', (e) => {
     e.preventDefault()
     let address1 = document.querySelector('#input-address-1').value
@@ -12,6 +9,7 @@ $(document).ready(() => {
     let origin1, origin2
     let destinationA
     let distanceMatrixOptions
+    let bestDestination
 
     clearMarkers()
 
@@ -21,11 +19,11 @@ $(document).ready(() => {
         let response2 = responses[1][0]
         origin1 = response1.geometry.location
         console.log('address 1 response: ', response1)
-        setMarker(response1, userName1)
+        setMarker(response1, 'origin', userName1)
         // TODO fetch request: POST to users -- userName1 & response.slice(0,1).place_id (place_id is a unique id for location)
         origin2 = response2.geometry.location
         console.log('address 2 response: ', response2)
-        setMarker(response2, userName2)
+        setMarker(response2, 'origin', userName2)
         // TODO fetch request: POST to users -- userName1 & response.slice(0,1).place_id (place_id is a unique id for location)
 
         // both geocode promises resolved so origin1 & origin2 should be defined
@@ -42,7 +40,7 @@ $(document).ready(() => {
         // anti-pattern (nested promise): how to fix: http://www.datchley.name/promise-patterns-anti-patterns/
         retrieveDistanceMatrix(distanceMatrixOptions)
           .then((response) => {
-            generateOptimumDestination(response) // working point
+            generateBestDestination(response)
           })
           .catch((status) => { console.error('getDistanceMatrix error: ', status) })
 

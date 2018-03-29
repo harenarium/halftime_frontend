@@ -1,5 +1,5 @@
 // Load the map centered on a location, intialize classes for later use
-let map, geocoder, placesService, distanceMatrixService, markersArray, bounds;
+let map, geocoder, placesService, DistanceMatrixServiceMatrixService, markersArray, bounds;
 function initMap() {
   map = new google.maps.Map(document.querySelector('#map'), {
     center: {lat: 40.7828647, lng: -73.9653551},
@@ -12,3 +12,4 @@ function initMap() {
   infoWindow = new google.maps.InfoWindow()
   markersArray = []
 }
+ 
