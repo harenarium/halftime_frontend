@@ -15,7 +15,6 @@
     <script src="src/get_nearby_places.js" "></script>
     <script src="src/fit_bounds_to_markers.js" "></script>
     <script src="src/calculate_optimum_destination.js" "></script>
-    <script src="src/generate_optimum_destination.js" "></script>
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
   </head>
   <body>
@@ -78,14 +77,52 @@
       <div><strong>Results</strong></div>
       <div id="output"></div>
 
-      <div id="map" style="height:500px;"></div>
-    </div>
+      <div class="columns">
+        <div class="column is-one-third" id="img-column" style="display: none;">
+            <!-- <div class="columns">
+                <div class="column is-half">
+                    <div class="box">
+                        <p class="title">One</p>
+                        <img src="http://via.placeholder.com/350x150">
+                    </div>
+                </div>
+                <div class="column is-half">
+                    <div class="box">
+                        <p class="title">One</p>
+                        <img src="http://via.placeholder.com/350x150">
+                    </div>
+                </div>
+            </div>
+
+            <div class="columns">
+                <div class="column is-half">
+                    <div class="box">
+                        <p class="title">One</p>
+                        <img src="http://via.placeholder.com/350x150">
+                    </div>
+                </div>
+                <div class="column is-half">
+                    <div class="box">
+                        <p class="title">One</p>
+                        <img src="http://via.placeholder.com/350x150">
+                    </div>
+                </div>
+            </div> -->
+        </div> <!-- one-third column -->
+
+          <div class="column">
+            <div class="box" id="map" style="height:800px;"></div>
+          </div>
+
+      </div> <!-- columns -->
+
+
+
+
+    </div> <!-- container is-fluid -->
 
   <!-- Load maps API asynchronously, then call initMap() -->
   <!-- <script src=`https://maps.googleapis.com/maps/api/js?key=${API_KEY}&libraries=places&callback=initMap` async defer></script> -->
-
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD7yUUJjuy7n4GbG-sDK1qJh3zfTMthgpE&libraries=places&callback=initMap" async defer></script>
-  <!-- <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD7yUUJjuy7n4GbG-sDK1qJh3zfTMthgpE&callback=initMap"></script> -->
-
   </body>
 </html>

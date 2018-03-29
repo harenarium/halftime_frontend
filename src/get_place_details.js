@@ -1,0 +1,3 @@
+function getPlaceDetails() { // place objects
+
+}
