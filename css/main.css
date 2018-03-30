@@ -1,4 +1,4 @@
- .bg {
+/* .bg {
    position: fixed;
    top: -50%;
    left: -50%;
@@ -14,7 +14,28 @@
    margin: auto;
    min-width: 50%;
    min-height: 50%;
- }
+ }*/
+
+/*navbar {
+  position: fixed;
+  z-index: 1 !important;
+}*/
+
+/*.nav-fixed-top{
+  position: fixed;
+  right: 0;
+  left: 0;
+  z-index: 1;
+}*/
+
+#form-columns {
+  margin-top: auto;
+}
+
+#img-column {
+  height: 80rem;
+  overflow-y: scroll;
+}
 
 .detail-box {
   height: 100%;
