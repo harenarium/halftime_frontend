@@ -1,15 +1,16 @@
 function generateBestDestination(response) {
   let originList = response.originAddresses;
-  let destinationList = response.destinationAddresses; 
+  let destinationList = response.destinationAddresses;
   let outputDiv = document.getElementById('output');
   outputDiv.innerHTML = '';
+  outputDiv.innerText = '← Here are some places that are convenient to get to. Pick one to see directions!';
 
   for (var i = 0; i < originList.length; i++) {
     var results = response.rows[i].elements;
     for (var j = 0; j < results.length; j++) {
-      outputDiv.innerHTML += originList[i] + ' to ' + destinationList[j] +
-          ': ' + results[j].distance.text + ' in ' +
-          results[j].duration.text + '<br>';
+      // outputDiv.innerHTML += originList[i] + ' to ' + destinationList[j] +  ': ' + results[j].distance.text + ' in ' +  results[j].duration.text + '<br>';
+      let output = originList[i] + ' to ' + destinationList[j] +  ': ' + results[j].distance.text + ' in ' +  results[j].duration.text + '<br>';
+      console.log(output);
     }
   }
 
