@@ -11,10 +11,12 @@ function getDirections(orig1, orig2, place) {
       destination: dest,
       travelMode: 'TRANSIT'
     }, function(response, status) {
-      // debugger
+      console.dir('response', response)
       desp.setDirections(response);
     });
   };
+  console.log('orig1', orig1)
+  console.log('orig2', orig2)
   eachRoute(orig1, place, directionsDisplay1)
   eachRoute(orig2, place, directionsDisplay2)
 }

@@ -66,19 +66,18 @@ function handlePlacesResults(results, status) {
   } // close if status conditional
 
   document.querySelectorAll('.go-button').forEach((button) => {
-
     button.addEventListener('click', (e) => {
-      // debugger
-      let placeId = e.target.id
+      let placeId = { "placeId": e.target.id }
       let form1 = document.querySelector('#form-address-1')
       let form2 = document.querySelector('#form-address-2')
       let input1 = document.querySelector('#input-address-1')
       let input2 = document.querySelector('#input-address-2')
-      let origin1 = {lat: origin1.lat(), lng: origin1.lng()}
-      let origin2 = {lat: origin2.lat(), lng: origin2.lng()}
+      let orig1 = {lat: origin1.lat(), lng: origin1.lng()}
+      let orig2 = {lat: origin2.lat(), lng: origin2.lng()}
       form1.reset()
       form2.reset()
-      getDirections(origin1, origin2, placeId)
+
+      getDirections(orig1, orig2, placeId)
       console.log('in query selector', e)
     })
   })
