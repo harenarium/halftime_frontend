@@ -10,7 +10,7 @@ $(document).ready(() => {
     let destinationA
     let distanceMatrixOptions
     let bestDestination
-
+ 
     clearMarkers()
 
     Promise.all([geoCodeAddress(address1, userName1), geoCodeAddress(address2, userName2)])

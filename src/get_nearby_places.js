@@ -1,4 +1,6 @@
 function getNearbyPlaces(remainingWalkTime=5) {
+  console.log('getNearbyPlaces called')
+  console.log('----------------------')
   let location = bestDestination[0].geometry.location
   let radius = Math.ceil( remainingWalkTime * 80 ).toString()
   let request = {
@@ -24,6 +26,7 @@ function handlePlacesResults(results, status) {
     //// -- build detail tiles -- ////
     let imgColumn = document.querySelector('#img-column')
     imgColumn.style=""
+    imgColumn.innerHTML = ""
     for (let i = 0; i < results.length; i+=2) {
       let imgUrl1 = results[i].photos[0].getUrl({ maxWidth: 640 })
       let placeName1 = results[i].name
@@ -36,7 +39,7 @@ function handlePlacesResults(results, status) {
       
       if (results[i+1] !== undefined) {
         let detailBoxes = '<div class="column is-half">'
-        let imgUrl2 = results[i+1].photos[0].getUrl({ maxWidth: 640 })
+        let imgUrl2 = results[i+1].photos[0].getUrl({ maxWidth: 1080 })
         let placeName2 = results[i+1].name
         let placeId2 = results[i+1].place_id
         let placeButton2 = document.createElement('button')
@@ -78,7 +81,7 @@ function handlePlacesResults(results, status) {
       form2.reset()
 
       getDirections(orig1, orig2, placeId)
-      console.log('in query selector', e)
+      setCenter(orig1, orig2, placeId)
     })
   })
     

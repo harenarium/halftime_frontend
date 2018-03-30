@@ -6,4 +6,4 @@ function fitBoundsToMarkers(markers) {
     }
   })
   map.fitBounds( bounds )
-}
+} 

@@ -1,5 +1,5 @@
 function setMarker(response, markerType, userName) {
-
+ 
   let position = response.geometry.location
   let icon, infoHtml
 
