@@ -12,6 +12,7 @@ function initMap() {
   infoWindow = new google.maps.InfoWindow()
   directionsService = new google.maps.DirectionsService;
   directionsDisplay = new google.maps.DirectionsRenderer;
+
   markersArray = []
+
 }
- 

@@ -6,7 +6,7 @@ $(document).ready(() => {
     let address2 = document.querySelector('#input-address-2').value
     let userName1 = document.querySelector('#user-name-1').value
     let userName2 = document.querySelector('#user-name-2').value
-    let origin1, origin2
+    // let origin1, origin2
     let destinationA
     let distanceMatrixOptions
     let bestDestination
