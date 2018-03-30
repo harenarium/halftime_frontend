@@ -11,7 +11,26 @@ function getDirections(orig1, orig2, place) {
       destination: dest,
       travelMode: 'TRANSIT'
     }, function(response, status) {
-      console.dir('response', response)
+
+
+
+      let outputDiv = document.getElementById('output');
+      // outputDiv.innerHTML = ''; ///replace text from generate_best_destination.js
+      let route = response.routes[0].legs[0]
+      let steps = ""
+      route.steps.forEach(step=>{
+        steps += (`${step.instructions} (${step.duration.text}, ${step.distance.text}) <br>
+        `)
+      })
+      let textDirections = (`Directions from ${route.start_address} to ${route.end_address} <br>
+        Total Duration: ${route.duration.text} <br>
+        Total Distance: ${route.distance.text} <br>
+        Directions: ${steps} <br>`)
+      console.log('response', response, textDirections)
+      outputDiv.innerHTML += '<br>' + textDirections + '<br><br>'
+
+
+
       desp.setDirections(response);
     });
   };

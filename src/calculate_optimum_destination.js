@@ -7,6 +7,7 @@ function calculateOptimumDestination(origin1, origin2){
     .then((responses) => {
       let halfpoint1 = responses[0]
       let halfpoint2 = responses[1]
+      console.log(halfpoint1, halfpoint2)
       // console.log({lat: precisionRound(halfpoint1.lat*percent1,6) + precisionRound(halfpoint2.lat*percent2,6), lng: precisionRound(halfpoint1.lng*percent1,6) + precisionRound(halfpoint2.lng*percent2,6)})
       resolve({lat: precisionRound(halfpoint1.lat*percent1,6) + precisionRound(halfpoint2.lat*percent2,6), lng: precisionRound(halfpoint1.lng*percent1,6) + precisionRound(halfpoint2.lng*percent2,6)})
     })
