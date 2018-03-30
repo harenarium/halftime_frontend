@@ -27,14 +27,15 @@
         <a class="navbar-item" href="#">
           <img src="src/No-logo.svg" alt="no logo yet" width="112" height="28">
         </a>
-        <a id="log-top-trg" class="login_trigger navbar-item" href="#modal">Click here to Login</a>
-        <a id="reg-top-trg" class="register_trigger navbar-item" href="#modal">or register</a>
-        <div class="navbar-burger">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
       </div>
+      <a id="log-top-trg" class="login_trigger navbar-item" href="#modal">Click here to Login</a>
+      <a id="reg-top-trg" class="register_trigger navbar-item" href="#modal">or register</a>
+      <div class="navbar-burger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
     </nav>
 
     <div class="modal">
@@ -100,8 +101,6 @@
                 </form>
             </div>
       </div>
-      <div><strong>Results</strong></div>
-      <div id="output"></div>
 
       <div class="columns">
         <div class="column is-one-third" id="img-column" style="display: none;">
@@ -136,7 +135,13 @@
             </div> -->
         </div> <!-- one-third column -->
 
+
           <div class="column">
+            <div class="box">
+              <!-- <div><strong>Results</strong></div> -->
+              <div id="output" style="padding:8px 24px; text-align:center"><p>↑ Welcome to Halftime! Please enter two locations and we will help you find a place to meet!</p></div>
+            </div>
+
             <div class="box" id="map" style="height:800px;"></div>
           </div>
 

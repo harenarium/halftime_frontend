@@ -7,7 +7,7 @@ function getNearbyPlaces(remainingWalkTime=5) {
     // type: ['restaurant'], // can only specify one type
     openNow: false,
     maxPriceLevel: 5
-  } 
+  }
   placesService.nearbySearch(request, handlePlacesResults)
 }
 
@@ -33,9 +33,9 @@ function handlePlacesResults(results, status) {
       placeButton1.id = `${placeId1}`
       let detailContainer = document.createElement('div')
       detailContainer.classList.add('columns')
-      
+
       if (results[i+1] !== undefined) {
-        let detailBoxes = '<div class="column is-half">'
+        let detailBoxes = '<div class="column is-half">'  ///is-half one
         let imgUrl2 = results[i+1].photos[0].getUrl({ maxWidth: 640 })
         let placeName2 = results[i+1].name
         let placeId2 = results[i+1].place_id
@@ -46,7 +46,7 @@ function handlePlacesResults(results, status) {
           + `<h3 class="has-text-centered">${placeName1}</h3>`
           + `<img src=${imgUrl1}>`
           + `<div class="has-text-centered"><button class="go-button button is-small is-link" href="#" id=${placeId1}>Go There?</button></div></div></div>`
-          + '<div class="column is-half">'
+          + '<div class="column is-half">' ///is-half one
           + '<div class="box">'
           + `<h3 class="has-text-centered">${placeName2}</h3>`
           + `<img src=${imgUrl2}>`
@@ -81,5 +81,5 @@ function handlePlacesResults(results, status) {
       console.log('in query selector', e)
     })
   })
-    
+
 } // close handlePlaceResults

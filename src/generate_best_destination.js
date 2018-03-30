@@ -3,6 +3,7 @@ function generateBestDestination(response) {
   let destinationList = response.destinationAddresses;
   let outputDiv = document.getElementById('output');
   outputDiv.innerHTML = '';
+  outputDiv.innerText = '← Here are some places that are convenient to get to. Pick one to see directions!';
 
   for (var i = 0; i < originList.length; i++) {
     var results = response.rows[i].elements;
