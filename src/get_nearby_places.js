@@ -48,12 +48,12 @@ function handlePlacesResults(results, status) {
         detailBoxes += '<div class="box detail-box">'
           + `<h3 class="has-text-centered">${placeName1}</h3>`
           + `<img src=${imgUrl1}>`
-          + `<div class="has-text-centered"><button class="go-button button is-small is-link" href="#" id=${placeId1}>Go There?</button></div></div></div>`
+          + `<div class="has-text-centered btn-wrapper"><button class="go-button button is-small is-link" href="#" id=${placeId1}>Go There?</button></div></div></div>`
           + '<div class="column is-half">' ///is-half one
           + '<div class="box detail-box">'
           + `<h3 class="has-text-centered">${placeName2}</h3>`
           + `<img src=${imgUrl2}>`
-          + `<div class="has-text-centered"><button class="go-button button is-small is-link" href="#" id=${placeId2}>Go There?</button></div></div></div>`
+          + `<div class="has-text-centered btn-wrapper"><button class="go-button button is-small is-link" href="#" id=${placeId2}>Go There?</button></div></div></div>`
         detailContainer.innerHTML = detailBoxes
         imgColumn.append(detailContainer)
       } else {
@@ -61,7 +61,7 @@ function handlePlacesResults(results, status) {
         detailBox += '<div class="box detail-box">'
           + `<h3 class="has-text-centered">${placeName1}</h3>`
           + `<img src=${imgUrl1}>`
-          + `<div class="has-text-centered"><button class="go-button button is-small is-link" href="#" id=${placeId1}>Go There?</button></div></div></div>`
+          + `<div class="has-text-centered btn-wrapper"><button class="go-button button is-small is-link" href="#" id=${placeId1}>Go There?</button></div></div></div>`
         detailContainer.innerHTML = detailBox
         imgColumn.append(detailContainer)
       }
