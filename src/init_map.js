@@ -10,7 +10,7 @@ function initMap() {
   placesService = new google.maps.places.PlacesService(map)
   bounds = new google.maps.LatLngBounds()
   infoWindow = new google.maps.InfoWindow()
-  directionsService = new google.maps.DirectionsService;
+  directionsService = new google.maps.DirectionsService; 
   directionsDisplay = new google.maps.DirectionsRenderer;
 
   markersArray = []

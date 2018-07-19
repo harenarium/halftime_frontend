@@ -1,4 +1,4 @@
-function getNearbyPlaces(remainingWalkTime=5) { 
+function getNearbyPlaces(remainingWalkTime=5) {
   let location = bestDestination[0].geometry.location
   let radius = Math.ceil( remainingWalkTime * 80 ).toString()
   let request = {

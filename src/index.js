@@ -1,5 +1,5 @@
 $(document).ready(() => {
-
+  console.log('API_ROOT', API_ROOT)
   document.querySelector('#output').addEventListener('click', (e) => {
     if ($('#input-address-1')[0].value && $('#input-address-2')[0].value && e.target.innerText.slice(2,22) === "Welcome to Halftime!"){
       submitAddresses(e)
