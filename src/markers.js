@@ -26,13 +26,13 @@ function setMarker(response, markerType, userName) {
     infoWindow.open(map, marker)
   })
   markersArray.push(marker)
-  bounds.extend(position) // extend boundaries to encompass new marker's position
+  bounds.extend(position)
   map.fitBounds(bounds)
   return marker
 }
 
 function clearMarkers() {
-  markersArray.forEach((m) => { m.setMap(null) })
+  markersArray.forEach(m => { m.setMap(null) })
   markersArray = []
 }
 

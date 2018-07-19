@@ -1,6 +1,6 @@
 // Load the map centered on a location, intialize classes for later use
 let map, geocoder, placesService, distanceMatrixService, directionsService, directionsRenderer, lastRoute1, lastRoute2, markersArray, placesResults, bounds, originPoint;
-function initMap() {
+function initMap() { 
   map = new google.maps.Map(document.querySelector('#map'), {
     center: {lat: 40.7828647, lng: -73.9653551},
     zoom: 12

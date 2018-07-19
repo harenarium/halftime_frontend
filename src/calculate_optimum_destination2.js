@@ -1,6 +1,6 @@
 //replace in index.html
 
-function calculateOptimumDestination(origin1, origin2){
+function calculateOptimumDestination(origin1, origin2){ 
   return new Promise( function(resolve, reject) {
     Promise.all([getDirectionInfo(origin1, origin2), getDirectionInfo(origin2, origin1)])
     .then((responses) => {
@@ -16,16 +16,13 @@ function calculateOptimumDestination(origin1, origin2){
       let halfPoint2 = getHalfpoint(steps2, shorterTotalTime)
 
       resolve({lat: (halfPoint1.lat()+halfPoint2.lat())*0.5, lng: (halfPoint1.lng()+halfPoint2.lng())*0.5})
-
-
-    })
+    }) 
   })
 }
 
 let getHalfpoint = function(steps, travelTime){
   let halftime = travelTime/2
   let counter = -1
-
   while (halftime>0){
     counter ++
     halftime -= steps[counter].duration.value
@@ -35,17 +32,14 @@ let getHalfpoint = function(steps, travelTime){
   return steps[counter].path[Math.round(fractionOfStepToTravel*stepPathArrayLength)]
 }
 
-
 let getDirectionInfo = function(origin1, origin2) {
-  // console.log('inside change handeler');
   return new Promise( function(resolve, reject) {
-
     directionsService.route({
       origin: origin1,
       destination: origin2,
       travelMode: 'TRANSIT'
     }, function(response, status) {
       resolve(response)
-    });
+    })
   })
-};
+}
