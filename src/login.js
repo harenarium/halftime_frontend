@@ -5,7 +5,7 @@ function loginAction() {
     if (this.text === "Click here to Login" || this.text === "Already have an account? Log in."){
       $(".modal").addClass("is-active");
       $(".user_login").show();
-      $("#warn-username-required").removeAttr("style").hide()
+      $("#warn-username-invalid").removeAttr("style").hide()
       $(".user_register").hide();
       $(".modal-card-title").text('Login');
       $(".login-button").text('Login');
@@ -51,7 +51,7 @@ function loginAction() {
           login(result)
         }else{
           //login failed alert
-          $("#warn-username-required").show()
+          $("#warn-username-invalid").show()
           console.log('login failed!');
 
         }
