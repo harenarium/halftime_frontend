@@ -4,7 +4,7 @@ Halftime is an app for finding to best place for two people to meet in NYC based
 
 ## Demo
 
-coming soon!
+https://youtu.be/X7Zw03P3pZc
 
 
 ## Development setup
