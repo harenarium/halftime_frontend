@@ -1,13 +1,16 @@
 <!DOCTYPE html>
-<html>
-  <head>
+<html lang="en">
+
+<head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HalfTime</title>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="src/api_config.js"></script>
     <script src="src/init_map.js"></script>
     <script src="src/index.js"></script>
     <script src="src/login.js"></script>
-    <script src="src/api_key.js" ></script>
+    <script src="src/api_key.js"></script>
     <script src="src/geocode_address.js"></script>
     <script src="src/markers.js"></script>
     <script src="src/precision_round.js"></script>
@@ -16,13 +19,12 @@
     <script src="src/get_nearby_places.js"></script>
     <script src="src/fit_bounds_to_markers.js"></script>
     <script src="src/calculate_optimum_destination2.js"></script>
-    <script src="src/get_directions.js" "></script>
-    <script src="src/fit_bounds_to_origins.js" "></script>
-    <script src="src/set_center.js" "></script>
+    <script src="src/get_directions.js"></script>
+    <script src="src/fit_bounds_to_origins.js"></script>
+    <script src="src/set_center.js"></script>
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
     <link rel="stylesheet" type="text/css" href="css/main.css">
-  </head>
-  <body>
+</head>
 
     <nav class="navbar navbar-fixed-top" role="navigation" aria-label="main navigation">
       <div class="navbar-brand">
@@ -37,67 +39,82 @@
         <span></span>
         <span></span>
       </div>
+<body>
 
+    <nav class="navbar navbar-fixed-top" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="#">
+                <img src="src/No-logo.svg" alt="no logo yet" width="112" height="28">
+            </a>
+        </div>
+        <a id="log-top-trg" class="login_trigger navbar-item" href="#modal">Click here to Login</a>
+        <a id="reg-top-trg" class="register_trigger navbar-item" href="#modal">or register</a>
+        <div class="navbar-burger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
     </nav>
 
     <div class="modal">
-      <div class="modal-background"></div>
-      <div class="modal-card">
-        <header class="modal-card-head">
-          <p class="modal-card-title">Login</p>
-          <button class="delete" id="login-close" aria-label="close"></button>
-        </header>
-        <section class="modal-card-body">
-          <div class="user_login">
-              <form id="login-form">
-                <div class="control">
-                  <label>Username</label>
-                  <input id="login-username" type="text"/>
+        <div class="modal-background"></div>
+        <div class="modal-card">
+            <header class="modal-card-head">
+                <p class="modal-card-title">Login</p>
+                <button class="delete" id="login-close" aria-label="close"></button>
+            </header>
+            <section class="modal-card-body">
+                <div class="user_login">
+                    <form id="login-form">
+                        <div class="control">
+                            <label>Username</label>
+                            <input id="login-username" type="text" />
+                        </div>
+                        <p class="help is-danger" style="display: none" id="warn-username-invalid">This username is invalid</p>
+                        <br/>
+                    </form>
+                    <button class="login-button button is-success">Login</button>
+                    <br/>
+                    <a href="#" id="reg-mod-trg" class="register_trigger">Don't have an account? Sign up!</a>
                 </div>
-                  <p class="help is-danger" style="display: none" id="warn-username-invalid">This username is invalid</p> <br/>
-              </form>
-              <button class="login-button button is-success">Login</button> <br/>
-              <a href="#" id="reg-mod-trg" class="register_trigger">Don't have an account? Sign up!</a>
-          </div>
-          <div class="user_register">
-              <form id="register-form">
-                <div class="control">
-                  <label>Full Name</label>
-                  <input id="register-fullname"type="text"/>
+                <div class="user_register">
+                    <form id="register-form">
+                        <div class="control">
+                            <label>Full Name</label>
+                            <input id="register-fullname" type="text" />
+                        </div>
+                        <p class="help is-danger" style="display: none" id="warn-name-required">Name is required</p>
+                        <div class="control">
+                            <label>Username</label>
+                            <input id="register-username" type="text" />
+                        </div>
+                        <p class="help is-danger" style="display: none" id="warn-username-required">Username is required</p>
+                        <p class="help is-danger" style="display: none" id="warn-username-taken">This username has been taken</p>
+                        <br/>
+                    </form>
+                    <button class="login-button button is-success">Register</button>
+                    <br/>
+                    <a href="#" id="log-mod-trg" class="login_trigger">Already have an account? Log in.</a>
                 </div>
-                  <p class="help is-danger" style="display: none" id="warn-name-required">Name is required</p>
-                <div class="control">
-                  <label>Username</label>
-                  <input id="register-username"type="text"/>
-                </div>
-                  <p class="help is-danger" style="display: none" id="warn-username-required">Username is required</p>
-                  <p class="help is-danger" style="display: none" id="warn-username-taken">This username has been taken</p> <br/>
-              </form>
-              <button class="login-button button is-success">Register</button> <br/>
-              <a href="#" id="log-mod-trg" class="login_trigger">Already have an account? Log in.</a>
-          </div>
-        </section>
-      </div>
+            </section>
+        </div>
     </div>
 
-    <!-- <div class="bg">
-        <img src="img/bg2.png" class="bg-image" id="bg-image1" alt="grey">
-    </div> -->
-
     <div class="container is-fluid">
-      <div class="columns" id="form-columns">
+        <div class="columns" id="form-columns">
             <div class="column is-half">
                 <form id="form-address-1">
-
-                    <input type="text" name="" class="input" id="user-name-1" placeholder="Name" size="50" style="height:50px;font-size:14pt;margin-bottom:.5rem;"></br>
+                    <input type="text" name="" class="input" id="user-name-1" placeholder="Name" size="50" style="height:50px;font-size:14pt;margin-bottom:.5rem;">
+                    </br>
                     <input type="text" name="" class="input" id="input-address-1" placeholder="Enter a location" size="50" style="height:50px;font-size:14pt;">
                     <!-- <input type="text" name="" id="input-keywords-1" placeholder="Enter keywords" width="48" height="24"> -->
                 </form>
             </div>
             <div class="column is-half">
                 <form id="form-address-2">
-                    <input type="text" name="" class="input" id="user-name-2" placeholder="Name" size="50" style="height:50px;font-size:14pt;margin-bottom:.5rem;"></br>
-                    <input type="text" name="" class="input" id="input-address-2" placeholder="Enter a location" size="50" style="height:50px;font-size:14pt;">
+                    <input type="text" name="" class="input" id="user-name-2" placeholder="Name" size="50" style="height:50px;font-size:14pt;margin-bottom:.5rem;">
+                    </br>
+                    <input type="text" name="" class="input" id="input-address-2" placeholder="Enter a location, then hit Enter!" size="50" style="height:50px;font-size:14pt;">
                     <!-- <input type="text" name="" id="input-keywords-2" placeholder="Enter keywords" width="48" height="24"> -->
                 </form>
             </div>
@@ -106,62 +123,34 @@
                     <input type="submit" name="" class="button is-success" id="submit-addresses" value="Add Addresses">
                 </form>
             </div> -->
-      </div>
+        </div>
 
-      <div class="columns">
-        <!-- <div class="img-column-wrapper"> -->
-            <div class="column is-one-third" id="img-column" style="display: none;">
-                <!-- <div class="columns">
-                    <div class="column is-half">
-                        <div class="box">
-                            <p class="title">One</p>
-                            <img src="http://via.placeholder.com/350x150">
-                        </div>
-                    </div>
-                    <div class="column is-half">
-                        <div class="box">
-                            <p class="title">One</p>
-                            <img src="http://via.placeholder.com/350x150">
-                        </div>
-                    </div>
-                </div>
+        <div class="columns">
 
-                <div class="columns">
-                    <div class="column is-half">
-                        <div class="box">
-                            <p class="title">One</p>
-                            <img src="http://via.placeholder.com/350x150">
-                        </div>
-                    </div>
-                    <div class="column is-half">
-                        <div class="box">
-                            <p class="title">One</p>
-                            <img src="http://via.placeholder.com/350x150">
-                        </div>
-                    </div>
-                </div> -->
-            </div> <!-- one-third column -->
-        <!-- </div> -->
-
-
-          <div class="column">
-            <div class="box">
-              <!-- <div><strong>Results</strong></div> -->
-              <div id="output" style="padding:8px 24px; text-align:center"><p>↑ Welcome to Halftime! Please enter two locations and we will help you find a place to meet!</p></div>
+            <div class="column is-one-third img-wrapper">
+                <!-- <div class="column box" id="img-column"></div> -->
             </div>
 
-            <div class="box" id="map" style="height:100rem;"></div>
-          </div>
+            <div class="column map-column">
+                <div class="box">
+                    <div id="output" style="padding:8px 24px; text-align:center">
+                        <p>
+                            ↑ Welcome to Halftime Metro! Enter two locations to find a place to meet!
+                        </p>
+                    </div>
+                </div>
+                <div class="box" id="map"></div>
+            </div>
+        </div>
 
-      </div> <!-- columns -->
+    </div>
+    <!-- container is-fluid -->
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery.scrollto@2.1.2/jquery.scrollTo.min.js"></script>
+    <!-- Load maps API asynchronously, then call initMap() -->
+    <!-- <script src=`https://maps.googleapis.com/maps/api/js?key=${API_KEY}&libraries=places&callback=initMap` async defer></script> -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD7yUUJjuy7n4GbG-sDK1qJh3zfTMthgpE&libraries=places&callback=initMap" async defer></script>
+</body>
 
-
-
-    </div> <!-- container is-fluid -->
-
-  <!-- Load maps API asynchronously, then call initMap() -->
-  <!-- <script src=`https://maps.googleapis.com/maps/api/js?key=${API_KEY}&libraries=places&callback=initMap` async defer></script> -->
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD7yUUJjuy7n4GbG-sDK1qJh3zfTMthgpE&libraries=places&callback=initMap" async defer></script>
-  </body>
 </html>

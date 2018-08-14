@@ -1,0 +1,20 @@
+{
+  "name": "halftime_frontend",
+  "version": "1.0.0",
+  "description": "\"Choose the best place to meet friends with optimized travel times\"",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/harenarium/halftime_frontend.git"
+  },
+  "author": "Anthony Fields",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/harenarium/halftime_frontend/issues"
+  },
+  "homepage": "https://github.com/harenarium/halftime_frontend#readme",
+  "dependencies": {}
+}

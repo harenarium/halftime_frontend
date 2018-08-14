@@ -28,13 +28,59 @@
   z-index: 1;
 }*/
 
+body {
+  scroll-behavior: smooth;
+}
+
+.box {
+  border-radius: .1rem;
+}
+
 #form-columns {
   margin-top: auto;
 }
 
-#img-column {
-  height: 80rem;
+.img-wrapper {
+  display: none;
+  height: 100.5rem;
+  /* height: 100%; */
   overflow-y: scroll;
+  /* overflow: auto;
+  max-height: 500rem; */
+  /* min-height: 70rem; */
+}
+
+.img-wrapper::-webkit-scrollbar { 
+  width: 0px;
+}
+
+.img-wrapper::-webkit-scrollbar-track-piece {
+    background-color: transparent
+}
+
+#img-column {
+  height: 100.5rem;
+  overflow-y: scroll;
+}
+
+#img-column::-webkit-scrollbar { 
+  width: 0px;
+}
+
+#img-column::-webkit-scrollbar-track-piece {
+    background-color: transparent
+}
+
+.img-destination {
+  background-size: cover;
+  height: 8.5rem;
+  width: 100%;
+}
+
+div#map.box {
+  height: -webkit-fill-available;
+  height: fill-available;
+  /* height: 100rem; */
 }
 
 .detail-box {

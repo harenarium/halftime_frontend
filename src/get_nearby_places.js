@@ -1,12 +1,10 @@
 function getNearbyPlaces(remainingWalkTime=5) {
-  console.log('getNearbyPlaces called')
-  console.log('----------------------')
   let location = bestDestination[0].geometry.location
   let radius = Math.ceil( remainingWalkTime * 80 ).toString()
   let request = {
     location: location,
     radius: radius,
-    // type: ['restaurant'], // can only specify one type
+    type: ['restaurant'], // can only specify one type
     openNow: false,
     maxPriceLevel: 5
   }
@@ -15,7 +13,6 @@ function getNearbyPlaces(remainingWalkTime=5) {
 
 function handlePlacesResults(results, status) {
   console.dir('places results: ', results)
-  // debugger
   let nearbyMarkers = []
   if (status == google.maps.places.PlacesServiceStatus.OK) {
     results.forEach((result) => {
@@ -24,9 +21,10 @@ function handlePlacesResults(results, status) {
     fitBoundsToMarkers(nearbyMarkers)
 
     //// -- build detail tiles -- ////
-    let imgColumn = document.querySelector('#img-column')
-    imgColumn.style=""
-    imgColumn.innerHTML = ""
+    let imgWrapper = document.querySelector('.img-wrapper')
+    // imgWrapper.style=""
+    imgWrapper.setAttribute("style", "display:block")
+    imgWrapper.innerHTML = ""
     for (let i = 0; i < results.length; i+=2) {
       let imgUrl1 = results[i].photos[0].getUrl({ maxWidth: 640 })
       let placeName1 = results[i].name
@@ -47,26 +45,28 @@ function handlePlacesResults(results, status) {
         placeButton2.id = `${placeId2}`
         detailBoxes += '<div class="box detail-box">'
           + `<h3 class="has-text-centered">${placeName1}</h3>`
-          + `<img src=${imgUrl1}>`
+          + `<img src=${imgUrl1} class="img-destination">`
           + `<div class="has-text-centered btn-wrapper"><button class="go-button button is-small is-link" href="#" id=${placeId1}>Meet There?</button></div></div></div>`
           + '<div class="column is-half">' ///is-half one
           + '<div class="box detail-box">'
           + `<h3 class="has-text-centered">${placeName2}</h3>`
-          + `<img src=${imgUrl2}>`
+          + `<img src=${imgUrl2} class="img-destination">` 
           + `<div class="has-text-centered btn-wrapper"><button class="go-button button is-small is-link" href="#" id=${placeId2}>Meet There?</button></div></div></div>`
         detailContainer.innerHTML = detailBoxes
-        imgColumn.append(detailContainer)
+        imgWrapper.append(detailContainer)
       } else {
         let detailBox = '<div class="column">'
         detailBox += '<div class="box detail-box">'
           + `<h3 class="has-text-centered">${placeName1}</h3>`
-          + `<img src=${imgUrl1}>`
+          + `<img src=${imgUrl1} class="img-destination">`
           + `<div class="has-text-centered btn-wrapper"><button class="go-button button is-small is-link" href="#" id=${placeId1}>Meet There?</button></div></div></div>`
         detailContainer.innerHTML = detailBox
-        imgColumn.append(detailContainer)
+        imgWrapper.append(detailContainer)
       }
     }
-  } // close if status conditional
+  } else {
+    console.log('nearbySearch status: ', status)
+  }
 
   document.querySelectorAll('.go-button').forEach((button) => {
     button.addEventListener('click', (e) => {
@@ -85,4 +85,4 @@ function handlePlacesResults(results, status) {
     })
   })
 
-} // close handlePlaceResults
+}
